@@ -67,6 +67,7 @@ class PlutoGrid extends PlutoStatefulWidget {
     this.columnMenuDelegate,
     this.configuration,
     this.mode = PlutoGridMode.normal,
+    this.greaterLessThanWidget = false,
   }) : super(key: key);
 
   /// {@template pluto_grid_property_columns}
@@ -247,6 +248,8 @@ class PlutoGrid extends PlutoStatefulWidget {
   /// In [configuration], you can change the style and settings or text used in [PlutoGrid].
   /// {@endtemplate}
   final PlutoGridConfiguration? configuration;
+
+  final bool? greaterLessThanWidget;
 
   /// Execution mode of [PlutoGrid].
   ///
@@ -599,7 +602,8 @@ class PlutoGridState extends PlutoStateWithChange<PlutoGrid> {
               ),
               LayoutId(
                 id: _StackName.bodyColumns,
-                child: PlutoBodyColumns(_stateManager),
+                child: PlutoBodyColumns(_stateManager,
+                    greaterLessThanWidget: widget.greaterLessThanWidget),
               ),
 
               /// Left columns and rows.

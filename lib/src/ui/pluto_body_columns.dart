@@ -5,9 +5,11 @@ import 'package:pluto_grid/pluto_grid.dart';
 
 class PlutoBodyColumns extends PlutoStatefulWidget {
   final PlutoGridStateManager stateManager;
+  final bool? greaterLessThanWidget;
 
   const PlutoBodyColumns(
     this.stateManager, {
+    this.greaterLessThanWidget = false,
     super.key,
   });
 

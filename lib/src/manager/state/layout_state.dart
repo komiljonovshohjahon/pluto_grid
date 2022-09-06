@@ -251,10 +251,17 @@ mixin LayoutState implements IPlutoGridState {
       headerHeight + columnGroupHeight + columnHeight + columnFilterHeight;
 
   @override
-  double get rowHeight => configuration!.style.rowHeight;
+  double get rowHeight => configuration!.style.rowSelectHeight;
 
   @override
   double get rowTotalHeight => rowHeight + PlutoGridSettings.rowBorderWidth;
+
+  @override
+  double get rowSelectHeight => configuration!.style.rowHeight;
+
+  @override
+  double get rowSelectTotalHeight =>
+      rowSelectHeight + PlutoGridSettings.rowBorderWidth;
 
   @override
   double get bodyTopOffset =>

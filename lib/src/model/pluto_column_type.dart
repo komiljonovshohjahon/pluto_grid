@@ -30,6 +30,7 @@ abstract class PlutoColumnType {
     String format = '#,###',
     bool applyFormatOnInit = true,
     bool allowFirstDot = false,
+    String locale = "kk",
   }) {
     return PlutoColumnTypeNumber(
       defaultValue: defaultValue,
@@ -37,6 +38,7 @@ abstract class PlutoColumnType {
       negative: negative,
       applyFormatOnInit: applyFormatOnInit,
       allowFirstDot: allowFirstDot,
+      locale: locale,
     );
   }
 
@@ -207,13 +209,16 @@ class PlutoColumnTypeNumber
 
   bool allowFirstDot;
 
+  String locale;
+
   PlutoColumnTypeNumber({
     this.defaultValue,
     required this.negative,
     required this.format,
     required this.applyFormatOnInit,
     required this.allowFirstDot,
-  })  : numberFormat = intl.NumberFormat(format),
+    required this.locale,
+  })  : numberFormat = intl.NumberFormat(format, locale),
         decimalPoint = getDecimalPoint(format);
 
   @override

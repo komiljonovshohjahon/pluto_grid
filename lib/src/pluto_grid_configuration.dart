@@ -127,6 +127,8 @@ class PlutoGridStyleConfig {
     this.evenRowColor,
     this.activatedColor = const Color(0xFFDCF5FF),
     this.checkedColor = const Color(0x11757575),
+    // this.disableColor = const Color(0xFFDDE2EB),
+    this.rowSelectHeight = PlutoGridSettings.rowHeight,
     this.cellColorInEditState = Colors.white,
     this.cellColorInReadOnlyState = const Color(0xFFDBDBDC),
     this.dragTargetColumnColor = const Color(0xFFDCF5FF),
@@ -175,6 +177,8 @@ class PlutoGridStyleConfig {
     this.evenRowColor,
     this.activatedColor = const Color(0xFF313131),
     this.checkedColor = const Color(0x11202020),
+    // this.disableColor = const Color(0xFF666666),
+    this.rowSelectHeight = PlutoGridSettings.rowHeight,
     this.cellColorInEditState = const Color(0xFF666666),
     this.cellColorInReadOnlyState = const Color(0xFF222222),
     this.dragTargetColumnColor = const Color(0xFF313131),
@@ -254,6 +258,9 @@ class PlutoGridStyleConfig {
   /// Checked Color. (Checked rows)
   final Color checkedColor;
 
+  // /// Disable Color. (Checked rows)
+  // final Color disableColor;
+
   /// Cell color in edit state. (only current cell)
   final Color cellColorInEditState;
 
@@ -294,6 +301,9 @@ class PlutoGridStyleConfig {
 
   /// Height of a row.
   final double rowHeight;
+
+  /// Height of a row. For PlutoSelectCell
+  final double rowSelectHeight;
 
   /// Height of column.
   final double columnHeight;
@@ -356,6 +366,7 @@ class PlutoGridStyleConfig {
     PlutoOptional<Color?>? evenRowColor,
     Color? activatedColor,
     Color? checkedColor,
+    // Color? disableColor,
     Color? cellColorInEditState,
     Color? cellColorInReadOnlyState,
     Color? dragTargetColumnColor,
@@ -368,6 +379,7 @@ class PlutoGridStyleConfig {
     Color? inactivatedBorderColor,
     double? iconSize,
     double? rowHeight,
+    double? rowSelectHeight,
     double? columnHeight,
     double? columnFilterHeight,
     EdgeInsets? defaultColumnTitlePadding,
@@ -402,6 +414,7 @@ class PlutoGridStyleConfig {
           evenRowColor == null ? this.evenRowColor : evenRowColor.value,
       activatedColor: activatedColor ?? this.activatedColor,
       checkedColor: checkedColor ?? this.checkedColor,
+      // disableColor: disableColor ?? this.disableColor,
       cellColorInEditState: cellColorInEditState ?? this.cellColorInEditState,
       cellColorInReadOnlyState:
           cellColorInReadOnlyState ?? this.cellColorInReadOnlyState,
@@ -413,6 +426,8 @@ class PlutoGridStyleConfig {
       gridBorderColor: gridBorderColor ?? this.gridBorderColor,
       borderColor: borderColor ?? this.borderColor,
       activatedBorderColor: activatedBorderColor ?? this.activatedBorderColor,
+      rowSelectHeight: rowSelectHeight ?? this.rowSelectHeight,
+
       inactivatedBorderColor:
           inactivatedBorderColor ?? this.inactivatedBorderColor,
       iconSize: iconSize ?? this.iconSize,

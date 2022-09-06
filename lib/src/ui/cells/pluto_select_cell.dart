@@ -54,7 +54,7 @@ class PlutoSelectCellState extends State<PlutoSelectCell>
         : 0;
 
     final rowsHeight = widget.column.type.select!.items.length *
-        widget.stateManager.rowTotalHeight;
+        widget.stateManager.rowSelectTotalHeight;
 
     popupHeight = widget.stateManager.configuration!.style.columnHeight +
         columnFilterHeight +

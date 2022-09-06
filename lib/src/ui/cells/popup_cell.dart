@@ -83,18 +83,25 @@ mixin PopupCellState<T extends PopupCell> on State<T>
 
     isOpenedPopup = true;
 
+    final _cols = popupColumns.map((e) {
+      e.enableContextMenu = false;
+      e.width = 260;
+      e.backgroundColor = const Color(0xFFF1F5F9);
+      return e;
+    }).toList();
+
     PlutoGridPopup(
       context: context,
       mode: PlutoGridMode.select,
       onLoaded: onLoaded,
       onSelected: onSelected,
-      columns: popupColumns,
+      columns: _cols,
       rows: popupRows,
       width: popupColumns.fold<double>(0, (previous, column) {
             return previous + column.width;
           }) +
           1,
-      height: popupHeight,
+      height: 400,
       createHeader: createHeader,
       createFooter: createFooter,
       configuration: widget.stateManager.configuration?.copyWith(
@@ -106,7 +113,7 @@ mixin PopupCellState<T extends PopupCell> on State<T>
                   BorderRadius.zero,
           defaultColumnTitlePadding: PlutoGridSettings.columnTitlePadding,
           defaultCellPadding: PlutoGridSettings.cellPadding,
-          rowHeight: widget.stateManager.configuration!.style.rowHeight,
+          rowHeight: widget.stateManager.configuration!.style.rowSelectHeight,
           enableRowColorAnimation: false,
         ),
       ),

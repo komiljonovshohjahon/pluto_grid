@@ -9,9 +9,12 @@ class PlutoBaseColumn extends PlutoStatefulWidget
 
   final double? columnTitleHeight;
 
+  final bool? greaterLessThanWidget;
+
   PlutoBaseColumn({
     required this.stateManager,
     required this.column,
+    this.greaterLessThanWidget = false,
     this.columnTitleHeight,
   }) : super(key: column.key);
 
@@ -73,6 +76,7 @@ class PlutoBaseColumnState extends PlutoStateWithChange<PlutoBaseColumn> {
             child: PlutoColumnFilter(
               stateManager: stateManager,
               column: widget.column,
+              greaterLessThanWidget: widget.greaterLessThanWidget,
             ),
           ),
       ],

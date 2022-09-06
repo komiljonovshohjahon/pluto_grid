@@ -200,6 +200,8 @@ class _RowContainerWidgetState extends PlutoStateWithChange<_RowContainerWidget>
 
   BoxDecoration _decoration = const BoxDecoration();
 
+  // bool _isEnableRow = true;
+
   Color get _oddRowColor =>
       stateManager.configuration!.style.oddRowColor == null
           ? stateManager.configuration!.style.rowColor
@@ -223,6 +225,7 @@ class _RowContainerWidgetState extends PlutoStateWithChange<_RowContainerWidget>
       _decoration,
       _getBoxDecoration(),
     );
+    // _isEnableRow = update<bool>(_isEnableRow, widget.row.enable);
 
     setKeepAlive(stateManager.currentRowIdx == widget.rowIdx);
   }
@@ -249,6 +252,9 @@ class _RowContainerWidgetState extends PlutoStateWithChange<_RowContainerWidget>
     required bool isCheckedRow,
   }) {
     Color color = _getDefaultRowColor();
+    // if (!_isEnableRow) {
+    //   return widget.stateManager.configuration!.style.disableColor;
+    // }
 
     if (isDragTarget) {
       color = stateManager.configuration!.style.cellColorInReadOnlyState;
@@ -265,7 +271,7 @@ class _RowContainerWidgetState extends PlutoStateWithChange<_RowContainerWidget>
       }
     }
 
-    return isCheckedRow
+    return (isCheckedRow)
         ? Color.alphaBlend(
             stateManager.configuration!.style.checkedColor, color)
         : color;

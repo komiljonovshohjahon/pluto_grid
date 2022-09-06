@@ -113,6 +113,7 @@ class PlutoGridStateManager extends PlutoGridStateChangeNotifier {
     CreateHeaderCallBack? createHeader,
     CreateFooterCallBack? createFooter,
     PlutoGridConfiguration? configuration,
+    bool? greaterLessThanWidget,
   }) {
     refColumns = FilteredList(initialList: columns);
     refColumnGroups = FilteredList(initialList: columnGroups);

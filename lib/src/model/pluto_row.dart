@@ -11,10 +11,14 @@ class PlutoRow {
   PlutoRow({
     required this.cells,
     this.sortIdx,
-    bool checked = false,
+    bool? checked = false,
+    bool editable = true,
+    bool checkEnable = true,
     Key? key,
   })  : _checked = checked,
         _state = PlutoRowState.none,
+        _editable = editable,
+        _checkEnable = checkEnable,
         _key = key ?? UniqueKey();
 
   /// The state value that the checkbox is checked.
@@ -29,6 +33,22 @@ class PlutoRow {
 
   void setChecked(bool? flag) {
     _checked = flag;
+  }
+
+  bool get editable => _editable;
+
+  bool _editable;
+
+  void setEditable(bool flag) {
+    _editable = flag;
+  }
+
+  bool get checkEnable => _checkEnable;
+
+  bool _checkEnable;
+
+  void setCheckEnable(bool flag) {
+    _checkEnable = flag;
   }
 
   /// State when a new row is added or the cell value in the row is changed.

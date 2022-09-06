@@ -167,6 +167,9 @@ class PlutoColumn {
   /// Hide the column.
   bool hide;
 
+  /// Custom GreaterLessThan input field
+  bool? greaterLessThanWidget;
+
   PlutoColumn({
     required this.title,
     required this.field,
@@ -199,6 +202,7 @@ class PlutoColumn {
     this.enableAutoEditing = false,
     this.enableEditingMode = true,
     this.hide = false,
+    this.greaterLessThanWidget = false,
   })  : _key = UniqueKey(),
         _checkReadOnly = checkReadOnly;
 

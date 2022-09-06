@@ -121,11 +121,12 @@ mixin RowState implements IPlutoGridState {
 
   @override
   bool get hasCheckedRow =>
-      refRows.firstWhereOrNull((element) => element.checked!) != null;
+      refRows.firstWhereOrNull((element) => element.checked ?? true) != null;
 
   @override
   bool get hasUnCheckedRow =>
-      refRows.firstWhereOrNull((element) => !element.checked!) != null;
+      refRows.firstWhereOrNull((element) => !(element.checked ?? false)) !=
+      null;
 
   @override
   bool? get tristateCheckedRow {
@@ -561,7 +562,10 @@ mixin RowState implements IPlutoGridState {
     bool notify = true,
   }) {
     for (final row in refRows) {
-      row.setChecked(flag == true);
+      // row.setChecked(flag == true);
+      if (row.checkEnable) {
+        row.setChecked(flag == true);
+      }
     }
 
     if (notify) {
